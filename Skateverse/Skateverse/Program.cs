@@ -11,9 +11,18 @@ builder.Services.AddDbContext<SkateverseDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<User>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequiredLength = 5;
+})
     .AddEntityFrameworkStores<SkateverseDbContext>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "User/Login";
+});
 
 var app = builder.Build();
 
