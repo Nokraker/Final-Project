@@ -23,7 +23,7 @@ namespace Skateverse.Data.Models
 
         [ForeignKey(nameof(Categorie))]
         public Guid CategorieId { get; set; }
-        public Categorie Categorie { get; set; } = new Categorie();
+        public Category Categorie { get; set; } = new Category();
 
         [ForeignKey(nameof(Brand))]
         public Guid BrandId { get; set; }

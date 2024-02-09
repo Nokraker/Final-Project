@@ -21,7 +21,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.LoginPath = "User/Login";
+    options.LoginPath = "/User/Login";
 });
 
 var app = builder.Build();

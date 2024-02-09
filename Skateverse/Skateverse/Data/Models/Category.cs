@@ -4,7 +4,7 @@ using System.Net.Http.Headers;
 
 namespace Skateverse.Data.Models
 {
-    public class Categorie
+    public class Category
     {
         [Key]
         public Guid Id { get; set; }

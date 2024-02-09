@@ -9,7 +9,7 @@ namespace Skateverse.Data
         public SkateverseDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Cart> ShoppingCarts { get; set; }
-        public DbSet<Categorie> Categories { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Favourite> Favourites { get; set; }
         public DbSet<Payment> Payments { get; set; }
