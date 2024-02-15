@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Skateverse.Contracts;
 using Skateverse.Data;
 using Skateverse.Data.Models;
+using Skateverse.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +25,8 @@ builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/User/Login";
 });
+
+builder.Services.AddScoped<IProductService, ProdcutService>();
 
 var app = builder.Build();
 

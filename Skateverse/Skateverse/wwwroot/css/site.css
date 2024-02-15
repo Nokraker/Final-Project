@@ -1,18 +1,336 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5;
+    overflow-x: hidden;
+    color: #727272;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    color: #171717;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    line-height: inherit;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a,
+button {
+    line-height: inherit;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+*:focus {
+    outline: none;
+}
+
+button:focus,
+a:focus {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #d68d67;
+}
+
+button,
+input[type="submit"] {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    opacity: 1;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+    opacity: 1;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+    opacity: 1;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    opacity: 1;
+}
+
+ol,
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+hr {
+    border-top-width: 1px;
+}
+
+/*----------------------------------------*/
+/*  02. Classes CSS
+/*----------------------------------------*/
+@media (min-width: 1400px) {
+    .custom-container {
+        max-width: 1526px;
+    }
+}
+
+@media only screen and (min-width: 1550px), only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px) {
+    .custom-container,
+    .container-fluid {
+        padding: 0 40px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .custom-container,
+    .container-fluid {
+        padding: 0 20px;
+    }
+}
+
+.section-title__title {
+    color: #171717;
+    font-size: 46px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px) {
+    .section-title__title {
+        font-size: 32px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .section-title__title {
+        font-size: 22px;
+    }
+}
+
+.section-title p {
+    color: #a8a8a8;
+    font-size: 18px;
+    line-height: 1.4;
+    max-width: 530px;
+    margin: 25px auto 0;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1549px), only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
+    .section-title p {
+        font-size: 16px;
+    }
+}
+
+.section-padding {
+    padding: 85px 0;
+}
+
+@media only screen and (max-width: 767px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+}
+
+.section-padding-1 {
+    padding-top: 85px;
+}
+
+.btn {
+    background-color: #171717;
+    color: #ffffff;
+    padding: 13px 35px;
+    font-size: 16px;
+    transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    border-radius: 0;
+}
+
+    .btn:active,
+    .btn:focus,
+    .btn:hover {
+        background-color: #60c38d;
+        color: #ffffff;
+    }
+
+.js-scroll {
+    opacity: 0;
+}
+
+.scrolled.ShortFadeInDown {
+    -webkit-animation: ShortFadeInDown 1s ease-in-out both;
+    animation: ShortFadeInDown 1s ease-in-out both;
+}
+
+.scrolled.ShortFadeInUp {
+    -webkit-animation: ShortFadeInUp 1s ease-in-out both;
+    animation: ShortFadeInUp 1s ease-in-out both;
+}
+
+.scrolled.ShortFadeInLeft {
+    -webkit-animation: ShortFadeInLeft 1s ease-in-out both;
+    animation: ShortFadeInLeft 1s ease-in-out both;
+}
+
+.scrolled.ShortFadeInRight {
+    -webkit-animation: ShortFadeInRight 1s ease-in-out both;
+    animation: ShortFadeInRight 1s ease-in-out both;
+}
+
+@-webkit-keyframes ShortFadeInDown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -50px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes ShortFadeInDown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -50px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes ShortFadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes ShortFadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes ShortFadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translate3d(-50px, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes ShortFadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translate3d(-50px, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@-webkit-keyframes ShortFadeInRight {
+    0% {
+        opacity: 0;
+        transform: translate3d(50px, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes ShortFadeInRight {
+    0% {
+        opacity: 0;
+        transform: translate3d(50px, 0, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
 }

@@ -1,0 +1,35 @@
+﻿@model List<ProductViewModel>
+@{
+    ViewData["Title"] = "All products";
+}
+
+<h1>All books</h1>
+@if (Model.Count != 0)
+{
+    <div class="text-center row">
+        @foreach (var product in Model)
+        {
+            <div class="card col-4" style="width: 20rem;">
+                <img class="card-img-top" src="@product.ImgUrl" height="350" width="100" alt="Book Image">
+                <div class="card-body">
+
+                    <h5 class="card-title mt-1">@product.Name</h5>
+                    <p class="mb-0">Brand Name: @product.BrandName</p>
+                    <p class="mb-0">Category: @product.CategoryName</p>
+                    <p class="mb-0">Count: @product.Count</p>
+                    <p class="mb-0">Price: @product.Price</p>
+                </div>
+
+                <form class="input-group-sm" asp-route-bookId="@product.Id" asp-controller="Product" asp-action="Order"
+                      method="post">
+                    <input type="submit" value="Mark as read" class="fs-6 btn btn-success mb-3 p-2" />
+                </form>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div>There are no entries yet</div>
+}
+

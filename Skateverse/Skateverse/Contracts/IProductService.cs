@@ -2,7 +2,7 @@
 
 namespace Skateverse.Contracts
 {
-    public interface IProdcutService
+    public interface IProductService
     {
         Task<IEnumerable<ProductViewModel>> GetAllAsync();
     }

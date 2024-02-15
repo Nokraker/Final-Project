@@ -5,7 +5,7 @@ using Skateverse.Models;
 
 namespace Skateverse.Services
 {
-    public class ProdcutService : IProdcutService
+    public class ProdcutService : IProductService
     {
         private readonly SkateverseDbContext context;
 

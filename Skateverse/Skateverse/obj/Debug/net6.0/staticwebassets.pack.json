@@ -13,8 +13,28 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\js\\glightbox.min.js",
+      "PackagePath": "staticwebassets\\js\\glightbox.min.js"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\js\\masonry.pkgd.min.js",
+      "PackagePath": "staticwebassets\\js\\masonry.pkgd.min.js"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\js\\nice-select2.js",
+      "PackagePath": "staticwebassets\\js\\nice-select2.js"
+    },
+    {
       "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\js\\swiper-bundle.min.js",
+      "PackagePath": "staticwebassets\\js\\swiper-bundle.min.js"
     },
     {
       "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\bootstrap\\LICENSE",
@@ -197,6 +217,142 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\GaramondPremrPro-Capt.eot",
+      "PackagePath": "staticwebassets\\lib\\fonts\\GaramondPremrPro-Capt.eot"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\GaramondPremrPro-Capt.svg",
+      "PackagePath": "staticwebassets\\lib\\fonts\\GaramondPremrPro-Capt.svg"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\GaramondPremrPro-Capt.ttf",
+      "PackagePath": "staticwebassets\\lib\\fonts\\GaramondPremrPro-Capt.ttf"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\GaramondPremrPro-Capt.woff",
+      "PackagePath": "staticwebassets\\lib\\fonts\\GaramondPremrPro-Capt.woff"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\GaramondPremrPro-Capt.woff2",
+      "PackagePath": "staticwebassets\\lib\\fonts\\GaramondPremrPro-Capt.woff2"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\GaramondPremrPro-Captd41d.eot",
+      "PackagePath": "staticwebassets\\lib\\fonts\\GaramondPremrPro-Captd41d.eot"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\LaStudioIcons.eot",
+      "PackagePath": "staticwebassets\\lib\\fonts\\LaStudioIcons.eot"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\LaStudioIcons.svg",
+      "PackagePath": "staticwebassets\\lib\\fonts\\LaStudioIcons.svg"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\LaStudioIcons.ttf",
+      "PackagePath": "staticwebassets\\lib\\fonts\\LaStudioIcons.ttf"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\LaStudioIcons.woff",
+      "PackagePath": "staticwebassets\\lib\\fonts\\LaStudioIcons.woff"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\LaStudioIconsd41d.eot",
+      "PackagePath": "staticwebassets\\lib\\fonts\\LaStudioIconsd41d.eot"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\nucleo-outline.svg",
+      "PackagePath": "staticwebassets\\lib\\fonts\\nucleo-outline.svg"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\nucleo-outline.ttf",
+      "PackagePath": "staticwebassets\\lib\\fonts\\nucleo-outline.ttf"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\nucleo-outline.woff",
+      "PackagePath": "staticwebassets\\lib\\fonts\\nucleo-outline.woff"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\nucleo-outline.woff2",
+      "PackagePath": "staticwebassets\\lib\\fonts\\nucleo-outline.woff2"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F80.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F80.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F81.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F81.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F82.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F82.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F83.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F83.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F84.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F84.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F85.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F85.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F86.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F86.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F87.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F87.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F88.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F88.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F89.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F89.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F8A.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F8A.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F8B.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F8B.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F8C.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F8C.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F8D.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F8D.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F8E.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F8E.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1F8F.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1F8F.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1FB2.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1FB2.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1FB4.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1FB4.html"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\fonts\\u1FB7.html",
+      "PackagePath": "staticwebassets\\lib\\fonts\\u1FB7.html"
+    },
+    {
       "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
@@ -243,6 +399,30 @@
     {
       "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\other\\dlicon.css",
+      "PackagePath": "staticwebassets\\lib\\other\\dlicon.css"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\other\\glightbox.min.css",
+      "PackagePath": "staticwebassets\\lib\\other\\glightbox.min.css"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\other\\lastudioicon.css",
+      "PackagePath": "staticwebassets\\lib\\other\\lastudioicon.css"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\other\\nice-select2.css",
+      "PackagePath": "staticwebassets\\lib\\other\\nice-select2.css"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\other\\style.min.css",
+      "PackagePath": "staticwebassets\\lib\\other\\style.min.css"
+    },
+    {
+      "Id": "C:\\Users\\valko\\OneDrive\\Работен плот\\finals project\\Final-Project\\Skateverse\\Skateverse\\wwwroot\\lib\\other\\swiper-bundle.min.css",
+      "PackagePath": "staticwebassets\\lib\\other\\swiper-bundle.min.css"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Skateverse.Microsoft.AspNetCore.StaticWebAssets.props",
