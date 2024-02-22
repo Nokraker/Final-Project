@@ -1,3 +1,8 @@
+@font-face {
+    font-family: sprite-graffiti;
+    src: url(../fonts/SpriteGraffiti.otf);
+}
+
 html {
     font-size: 14px;
 }
@@ -333,4 +338,8 @@ hr {
         opacity: 1;
         transform: translate3d(0, 0, 0);
     }
+}
+
+.font-sprite-graffiti {
+    font-family:sprite-graffiti;
 }

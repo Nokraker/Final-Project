@@ -5,7 +5,7 @@
 }​
 
 <!-- Log In & Register Start -->
-        <div class="login-register-section section-padding-2">
+        <div class="login-register-section section-padding-2" style="margin-top: 142px">
             <div class="container-fluid custom-container">
                 <div class="row justify-content-center">
                     <div class="col-md-6">
@@ -18,14 +18,17 @@
                                     <!-- Single Form Start -->
                                     <div class="single-form">
                                         <input class="single-form__input" type="text" placeholder="Username*" asp-for="@Model.UserName"/>
+                                        <span asp-validation-for="@Model.UserName" class="text-danger"></span>​
                                     </div>
                                     <!-- Single Form Start -->
                                     <div class="single-form">
                                         <input class="single-form__input" type="email" placeholder="Email Address*" asp-for="@Model.Email"/>
+                                        <span asp-validation-for="@Model.Email" class="text-danger"></span>​
                                     </div>
                                     <!-- Single Form Start -->
                                     <div class="single-form">
-                                        <input class="single-form__input" type="password" placeholder="Password *" />
+                                        <input class="single-form__input" type="password" placeholder="Password *" asp-for="@Model.Password"/>
+                                        <span asp-validation-for="@Model.Password" class="text-danger"></span>​
                                     </div>
                                     <!-- Single Form Start -->
                                     <div class="single-form">

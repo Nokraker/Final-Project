@@ -9,22 +9,20 @@ namespace Skateverse.Data.Models
         public Guid Id { get; set; }
 
         [Required]
-        public string Cart_type { get; set; }
-
-        [Required]
-        public DateTime ExpireDate { get; set; }
-
-        [Required]
-        public DateTime PublishingDate { get; set; }
+        public DateTime Payment_Date { get; set; }
 
         [ForeignKey(nameof(User))]
         public string UserId { get; set; }
-        [Required]
         public User User { get; set; }
 
         [ForeignKey(nameof(Cart))]
         public Guid CartId { get; set; }
-        [Required]
         public Cart Cart { get; set; }
+
+        [ForeignKey(nameof(PaymentCard))]
+        public Guid PCardId { get; set; }
+        public PaymentCard PCard { get; set; }
+
+        List<Cart> cartItems { get; set; }
     }
 }

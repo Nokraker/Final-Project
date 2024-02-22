@@ -104,5 +104,12 @@ namespace Skateverse.Controllers
             await signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public IActionResult ProfilePage()
+        {
+            
+            return View();
+        }
     }
 }

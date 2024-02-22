@@ -20,6 +20,7 @@ namespace Skateverse.Models
 
         [Compare(nameof(Password))]
         [DataType(DataType.Password)]
+        [Required]
         public string ConfirmPassword { get; set; } = null;
     }
 }
