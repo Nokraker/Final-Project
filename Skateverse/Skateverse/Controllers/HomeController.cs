@@ -1,21 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Skateverse.Contracts;
 using Skateverse.Models;
+using Skateverse.Services;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace Skateverse.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IProductService productService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IProductService _service)
         {
             _logger = logger;
+            productService = _service;
         }
 
-        public IActionResult Index()
+        public async Task< IActionResult> Index()
         {
-            return View();
+            List<ProductViewModel> products = await productService.GetAllAsync();
+            return View(products);
         }
 
         public IActionResult Privacy()

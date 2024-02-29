@@ -26,7 +26,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = "/User/Login";
 });
 
-builder.Services.AddScoped<IProductService, ProdcutService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 

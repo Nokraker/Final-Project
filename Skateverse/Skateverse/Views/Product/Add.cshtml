@@ -1,0 +1,50 @@
+﻿@using Skateverse.Data.Models;
+@model AddProductModel
+@{
+}
+
+<div class="login-register-section section-padding-2" style="margin-top: 142px">
+    <div class="container-fluid custom-container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="login-register align-content-center">
+                    <h3 class="login-register__title">Add product</h3>
+
+                    <form method="post">
+                        <div class="login-register__form">
+                            <div class="single-form align-content-center">
+                                <input class="single-form__input" type="text" placeholder="Product name" asp-for="@Model.Name" />
+                            </div>
+                            <div class="single-form">
+                                <input class="single-form__input" type="text" placeholder="Image url" asp-for="@Model.ImgUrl" />
+                            </div>
+                            <div class="single-form">
+                                <input class="single-form__input" type="number" placeholder="Price" asp-for="@Model.Price" />
+                            </div>
+                            <div class="single-form">
+                                <input class="single-form__input" type="number" placeholder="Count" asp-for="@Model.Count" />
+                            </div>
+                            <div class="single-form">
+                                <label>Category</label>
+                                <select asp-for="@Model.CategoryId">
+                                    @foreach (Category c in ViewBag.Categories)
+                                    {
+                                        <option value="@c.Id">@c.Name</option>
+                                    }
+                                </select>
+
+                            </div>
+                            <div class="single-form">
+                                <button class="single-form__btn btn" type="submit">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

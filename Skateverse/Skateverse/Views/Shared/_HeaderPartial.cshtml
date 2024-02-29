@@ -44,9 +44,6 @@
             <div class="container-fluid custom-container">
                 <div class="row align-items-center position-relative justify-content-evenly">
                     <div class="col-md-4 col-3 d-xl-none">
-                        <button class="header__main--toggle header__main--toggle-dark" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" type="button">
-                            <i class="lastudioicon-menu-8-1"></i>
-                        </button>
                     </div>
                     <div class="col-xl-3 col-md-4 col-6">
                         <div class="header__main--logo text-center text-xl-start">
@@ -59,34 +56,18 @@
                         <div class="header__main--meta header__main--dark d-flex justify-content-end align-items-center">
                             <!-- Meta Item List Start -->
                             <ul class="meta-items-list meta-items-list--dark d-flex justify-content-end align-items-center">
-                                <li class="search d-none d-lg-block">
-                                    <form action="#">
-                                        <div class="meta-search meta-search--dark">
-                                            <input type="text" placeholder="Search products…" />
-                                            <button type="button" aria-label="Zoom">
-                                                <i class="lastudioicon-zoom-1"></i>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </li>
                                 <li class="wishlist">
-                                    <a href="wishlist.html">
-                                        <i class="lastudioicon lastudioicon-heart-1"></i>
-                                        <span class="badge">03</span>
+                                    <a asp-action="Add" asp-controller="Product" >
+                                        <i class="bi bi-plus"></i>
                                     </a>
                                 </li>
                                 <li class="cart">
                                     <button data-bs-toggle="offcanvas" data-bs-target="#cartSidebar" type="button">
                                         <i class="bi bi-cart"></i>
-                                        <span class="badge">03</span>
+                                        <span class="badge"></span>
                                     </button>
                                 </li>
                             </ul>
-                            <button class="toggle-icon d-none d-xl-block" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" type="button" aria-label="menu">
-                                <span class="bar-icon">
-                                    <i class="lastudioicon-menu-8-1"></i>
-                                </span>
-                            </button>
                             <!-- Meta Item List Start -->
                         </div>
                     </div>

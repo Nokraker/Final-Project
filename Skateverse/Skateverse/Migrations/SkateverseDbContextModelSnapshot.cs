@@ -159,21 +159,6 @@ namespace Skateverse.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Skateverse.Data.Models.Brand", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Brands");
-                });
-
             modelBuilder.Entity("Skateverse.Data.Models.Cart", b =>
                 {
                     b.Property<Guid>("Id")
@@ -213,6 +198,23 @@ namespace Skateverse.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("3ce676e9-e236-4405-aba5-6d8d34dfe38d"),
+                            Name = "Jeans"
+                        },
+                        new
+                        {
+                            Id = new Guid("45234760-5cfe-4625-865d-8fe1fdadce42"),
+                            Name = "Upperwear"
+                        },
+                        new
+                        {
+                            Id = new Guid("71de3abe-af27-48c0-b2c4-2276bada16bf"),
+                            Name = "Shirts"
+                        });
                 });
 
             modelBuilder.Entity("Skateverse.Data.Models.Favourite", b =>
@@ -299,10 +301,7 @@ namespace Skateverse.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("BrandId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CategorieId")
+                    b.Property<Guid>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Count")
@@ -322,9 +321,7 @@ namespace Skateverse.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BrandId");
-
-                    b.HasIndex("CategorieId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
                 });
@@ -524,26 +521,13 @@ namespace Skateverse.Migrations
 
             modelBuilder.Entity("Skateverse.Data.Models.Product", b =>
                 {
-                    b.HasOne("Skateverse.Data.Models.Brand", "Brand")
-                        .WithMany("Products")
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Skateverse.Data.Models.Category", "Categorie")
+                    b.HasOne("Skateverse.Data.Models.Category", "Category")
                         .WithMany("Product")
-                        .HasForeignKey("CategorieId")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Brand");
-
-                    b.Navigation("Categorie");
-                });
-
-            modelBuilder.Entity("Skateverse.Data.Models.Brand", b =>
-                {
-                    b.Navigation("Products");
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Skateverse.Data.Models.Cart", b =>

@@ -10,8 +10,8 @@ namespace Skateverse.Data.Models
         public Guid Id { get; set; }
         [Required]
         [StringLength(30)]
-        public string Name { get; set; } = null;
+        public string Name { get; set; }
 
-        public List<Product> Product { get; set; } = new List<Product>();        
+        public List<Product> Product { get; set; }        
     }
 }

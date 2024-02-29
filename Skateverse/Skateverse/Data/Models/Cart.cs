@@ -15,7 +15,7 @@ namespace Skateverse.Data.Models
         public User User { get; set; }
 
         [Required]
-        public bool IsPayed { get; set; }
+        public bool IsPayed { get; set; } = false;
 
         [ForeignKey(nameof(Product))]
         public Guid ProductId { get; set; }

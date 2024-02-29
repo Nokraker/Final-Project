@@ -1,9 +1,11 @@
-﻿using Skateverse.Models;
+﻿using Skateverse.Data.Models;
+using Skateverse.Models;
 
 namespace Skateverse.Contracts
 {
     public interface IProductService
     {
-        Task<IEnumerable<ProductViewModel>> GetAllAsync();
+        Task<List<ProductViewModel>> GetAllAsync();
+        bool Add(AddProductModel model);
     }
 }
