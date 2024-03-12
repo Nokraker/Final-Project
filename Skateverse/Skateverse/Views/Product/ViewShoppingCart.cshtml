@@ -1,0 +1,50 @@
+﻿@using Skateverse.Data.Models
+@model List<CartViewModel>
+@{
+    
+}
+
+<main>
+    <div style="margin-top:142px">
+        <div class="tab-content">
+            <div id="allProducts" class="tab-pane fade show active" role="tabpanel">
+                <div class="new-arrival-wrapper-2">
+                    <div class="row g-3 justify-content-center">
+                        @foreach (CartViewModel cart in Model)
+                        {
+                            <div style="width: 238px">
+                                <!-- Single product Start -->
+                                <div class="single-product js-scroll ShortFadeInUp">
+                                    <div class="single-product__thumbnail">
+                                        <div class="single-product__thumbnail--meta-3">
+                                            <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" aria-label="Add to wishlist" data-bs-custom-class="p-meta-tooltip">
+                                                <i class="bi bi-heart"></i>
+                                            </a>
+                                        </div>
+                                        <div class="single-product__thumbnail--holder">
+                                            <a href="product-single.html">
+                                                <img src="@cart.Product.ImgUrl" alt="Product" width="350" height="378" loading="lazy" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="single-product__info text-center">
+                                        <div class="single-product__info--tags">
+                                            <a href="product-single.html">@cart.Product.Category.Name</a>
+                                        </div>
+                                        <h3 class="single-product__info--title">
+                                            <a href="#">
+                                                @cart.Product.Name
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <!-- Single product End -->
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>

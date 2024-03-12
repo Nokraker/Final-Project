@@ -7,5 +7,8 @@ namespace Skateverse.Contracts
     {
         Task<List<ProductViewModel>> GetAllAsync();
         bool Add(AddProductModel model);
+
+        void AddCart(string UserId, Guid productId);
+        List<CartViewModel> ViewShoppingCart(string UserId);
     }
 }

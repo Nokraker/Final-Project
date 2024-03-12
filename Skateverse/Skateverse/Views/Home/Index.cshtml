@@ -1,4 +1,5 @@
-﻿@model List<ProductViewModel>
+﻿@using System.Security.Claims;
+@model List<ProductViewModel>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -27,9 +28,12 @@
                                             </a>
                                         </div>
                                         <div class="single-product__thumbnail--meta-2">
-                                            <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to cart" aria-label="Add to cart" data-bs-custom-class="p-meta-tooltip">
-                                                <i class="bi bi-cart"></i>
-                                            </a>
+                                            <form method="post">
+                                                <button data-bs-tooltip="tooltip" asp-action="AddCart" asp-controller="Product" asp-route-productId="@product.Id" data-bs-custom-class="p-meta-tooltip">
+                                                    <i class="bi bi-cart"></i>
+                                                </button>
+                                            </form>
+
                                         </div>
                                     </div>
                                     <div class="single-product__info text-center">

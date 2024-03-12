@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Skateverse.Contracts;
 using Skateverse.Data;
 using Skateverse.Data.Models;
@@ -9,10 +11,12 @@ namespace Skateverse.Services
     public class ProductService : IProductService
     {
         private readonly SkateverseDbContext context;
+        private readonly UserManager<User> userManager;
 
-        public ProductService(SkateverseDbContext _context)
+        public ProductService(SkateverseDbContext _context, UserManager<User> manager)
         {
             this.context = _context;
+            this.userManager = manager;
         }
 
         public async Task<List<ProductViewModel>> GetAllAsync()
@@ -51,6 +55,33 @@ namespace Skateverse.Services
             }
 
             return false;
+        }
+
+        public List<CartViewModel> ViewShoppingCart(string userId)
+        {
+
+            List<CartViewModel> carts = context.ShoppingCarts.Include(nameof(Product)).Where(x => x.User.Id == userId && x.IsPayed == false).
+                Select(p => new CartViewModel
+                {
+                    Product = p.Product,
+                    IsPayed = p.IsPayed
+                }).ToList();
+
+            return carts;
+        }
+
+        public void AddCart(string userId, Guid productId)
+        {
+
+            Cart cart = new Cart()
+            {
+                Id = Guid.NewGuid(),
+                UserId = userId,
+                ProductId = productId,
+            };
+
+            context.ShoppingCarts.Add(cart);
+            context.SaveChanges();
         }
     }
 }

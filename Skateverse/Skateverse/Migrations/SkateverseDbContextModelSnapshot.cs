@@ -181,7 +181,7 @@ namespace Skateverse.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ShoppingCarts");
+                    b.ToTable("ShoppingCarts", (string)null);
                 });
 
             modelBuilder.Entity("Skateverse.Data.Models.Category", b =>
@@ -197,7 +197,7 @@ namespace Skateverse.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
 
                     b.HasData(
                         new
@@ -229,7 +229,7 @@ namespace Skateverse.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Favourites");
+                    b.ToTable("Favourites", (string)null);
                 });
 
             modelBuilder.Entity("Skateverse.Data.Models.Payment", b =>
@@ -259,7 +259,7 @@ namespace Skateverse.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Payments");
+                    b.ToTable("Payments", (string)null);
                 });
 
             modelBuilder.Entity("Skateverse.Data.Models.PaymentCard", b =>
@@ -292,7 +292,7 @@ namespace Skateverse.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Cards");
+                    b.ToTable("Cards", (string)null);
                 });
 
             modelBuilder.Entity("Skateverse.Data.Models.Product", b =>
@@ -323,7 +323,7 @@ namespace Skateverse.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("Skateverse.Data.Models.User", b =>
