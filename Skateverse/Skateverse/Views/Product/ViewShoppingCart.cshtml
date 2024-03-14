@@ -1,50 +1,116 @@
 ﻿@using Skateverse.Data.Models
 @model List<CartViewModel>
 @{
-    
+        double totalPrice = 0;
+    @foreach (CartViewModel cart in Model)
+    {
+        totalPrice += cart.Product.Price;
+    }
+
 }
 
 <main>
     <div style="margin-top:142px">
-        <div class="tab-content">
-            <div id="allProducts" class="tab-pane fade show active" role="tabpanel">
-                <div class="new-arrival-wrapper-2">
-                    <div class="row g-3 justify-content-center">
-                        @foreach (CartViewModel cart in Model)
-                        {
-                            <div style="width: 238px">
-                                <!-- Single product Start -->
-                                <div class="single-product js-scroll ShortFadeInUp">
-                                    <div class="single-product__thumbnail">
-                                        <div class="single-product__thumbnail--meta-3">
-                                            <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" aria-label="Add to wishlist" data-bs-custom-class="p-meta-tooltip">
-                                                <i class="bi bi-heart"></i>
-                                            </a>
-                                        </div>
-                                        <div class="single-product__thumbnail--holder">
-                                            <a href="product-single.html">
-                                                <img src="@cart.Product.ImgUrl" alt="Product" width="350" height="378" loading="lazy" />
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="single-product__info text-center">
-                                        <div class="single-product__info--tags">
-                                            <a href="product-single.html">@cart.Product.Category.Name</a>
-                                        </div>
-                                        <h3 class="single-product__info--title">
-                                            <a href="#">
-                                                @cart.Product.Name
-                                            </a>
-                                        </h3>
-                                    </div>
-                                </div>
-                                <!-- Single product End -->
-                            </div>
-                        }
-                    </div>
+        <div class="breadcrumb-section">
+            <div class="container-fluid custom-container">
+                <div class="breadcrumb-wrapper text-center">
+                    <h2 class="breadcrumb-wrapper__title">Cart</h2>
+                    <ul class="breadcrumb-wrapper__items justify-content-center">
+                        <li><a href="index.html">Home</a></li>
+                        <li><span>Cart</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
+        <!-- Cart Start -->
+        <div class="cart-section section-padding-2">
+            <div class="container-fluid custom-container">
+                <!-- Cart Wrapper Start-->
+                <div class="cart-wrapper">
+                    <!-- Cart Form Start-->
+                    <div class="cart-form">
+                        <!-- Cart Table Start-->
+                        <div class="cart-table table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="cart-product-remove">
+                                            &nbsp;
+                                        </th>
+                                        <th class="cart-product-thumbnail">
+                                            &nbsp;
+                                        </th>
+                                        <th class="cart-product-name">
+                                            Product
+                                        </th>
+                                        <th class="cart-product-price text-center">
+                                            Price
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (CartViewModel cart in Model)
+                                    {
+                                        <tr class="cart-item">
+                                            <td class="bi bi-x">
+                                                <a href="#" class="remove"></a>
+                                            </td>
 
+                                            <td class="cart-product-thumbnail">
+                                                <a href="product-single.html">
+                                                    <img src="@cart.Product.ImgUrl" alt="Product" width="70" height="89" />
+                                                </a>
+                                            </td>
+
+                                            <td class="cart-product-name">
+                                                <a href="product-single.html">
+                                                    @cart.Product.Name
+                                                </a>
+                                            </td>
+
+                                            <td class="cart-product-price text-md-center" data-title="Price">
+                                                <span class="price-amount">
+                                                    <ins>@cart.Product.Price $</ins>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Cart Table Start-->
+                    </div>
+                    <!-- Cart Form End-->
+                    <!-- Cart Collaterals Start-->
+                    <div class="cart-collaterals">
+                        <!-- Cart Totals Start-->
+                        <div class="cart-totals">
+                            <h3 class="cart-totals__title">Cart totals</h3>
+
+                            <div class="cart-totals__table table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr class="order-total">
+                                            <th>Total</th>
+                                            <td>
+                                                <strong>@totalPrice $</strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="cart-totals__checkout">
+                                <a href="#">Proceed to checkout</a>
+                            </div>
+                        </div>
+                        <!-- Cart Totals End-->
+                    </div>
+                    <!-- Cart Collaterals End-->
+                </div>
+                <!-- Cart Wrapper End -->
+            </div>
+        </div>
+        <!-- Cart End -->
+    </div>
 </main>

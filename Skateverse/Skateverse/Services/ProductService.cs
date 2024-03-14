@@ -60,7 +60,7 @@ namespace Skateverse.Services
         public List<CartViewModel> ViewShoppingCart(string userId)
         {
 
-            List<CartViewModel> carts = context.ShoppingCarts.Include(nameof(Product)).Where(x => x.User.Id == userId && x.IsPayed == false).
+            List<CartViewModel> carts = context.ShoppingCarts.Include(x => x.Product).Include(x => x.Product.Category).Where(x => x.User.Id == userId && x.IsPayed == false).
                 Select(p => new CartViewModel
                 {
                     Product = p.Product,
