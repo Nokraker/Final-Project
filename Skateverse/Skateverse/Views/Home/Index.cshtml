@@ -23,7 +23,7 @@
                                             </a>
                                         </div>
                                         <div class="single-product__thumbnail--holder">
-                                            <a href="product-single.html">
+                                            <a>
                                                 <img src="@product.ImgUrl" alt="Product" width="350" height="378" loading="lazy" />
                                             </a>
                                         </div>
@@ -38,10 +38,10 @@
                                     </div>
                                     <div class="single-product__info text-center">
                                         <div class="single-product__info--tags">
-                                            <a href="product-single.html">@product.CategoryName</a>
+                                            <a>@product.CategoryName</a>
                                         </div>
                                         <h3 class="single-product__info--title">
-                                            <a href="#">
+                                            <a asp-action="FullProductPage" asp-controller="Product" asp-route-productId="@product.Id">
                                                 @product.Name
                                             </a>
                                         </h3>

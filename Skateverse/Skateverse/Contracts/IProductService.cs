@@ -10,5 +10,7 @@ namespace Skateverse.Contracts
 
         void AddCart(string UserId, Guid productId);
         List<CartViewModel> ViewShoppingCart(string UserId);
+
+        Product FullProductPage(Guid productId);
     }
 }

@@ -83,5 +83,10 @@ namespace Skateverse.Services
             context.ShoppingCarts.Add(cart);
             context.SaveChanges();
         }
+
+        public Product FullProductPage(Guid productId)
+        {
+            return context.Products.Include(x => x.Category).Where(x => x.Id == productId).FirstOrDefault();
+        }
     }
 }

@@ -1,0 +1,73 @@
+﻿@using Skateverse.Data.Models;
+@model Product
+@{
+}
+
+<main style="margin-top:142px">
+    <div class="product-single-section section-padding-2">
+        <div class="container-fluid custom-container">
+            <!-- Product Single Wrapper Start -->
+            <div class="product-single-wrapper">
+                <div class="product-single-col-1">
+                    <!-- Product Single image Start -->
+                    <div class="product-single-image">
+                        <div class="product-single-slide navigation-arrows-style-2">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="product-single-slide-item swiper-slide">
+                                        <img src="@Model.ImgUrl" alt="product" width="694" height="728" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Single image End -->
+                </div>
+
+                <div class="product-single-col-2">
+                    <!-- Product Single content Start -->
+                    <div class="product-single-content">
+                        <h2 class="product-single-content__title">
+                            @Model.Name
+                        </h2>
+                        <div class="product-single-content__price-stock">
+                            <div class="product-single-content__price">
+                                <ins>$@Model.Price</ins>
+                            </div>
+                            <div class="product-single-content__stock">
+                                <span class="stock-icon">
+                                    <i class="dlicon ui-1_check-circle-08"></i>
+                                </span>
+                                <span class="stock-text">
+                                    @Model.Count in stock
+                                </span>
+                            </div>
+                        </div>
+                        <div class="product-single-content__add-to-cart-wrapper">
+                            <div class="product-single-content__quantity-add-to-cart">
+                                <form method="post">
+                                    <button class="product-single-content__add-to-cart btn" asp-action="AddCart" asp-controller="Product" asp-route-productId="@Model.Id" type="button">
+                                        Add to cart
+                                    </button>
+                                </form>
+                            </div>
+                            <a href="#" class="product-add-wishlist">
+                                Add to Wishlist
+                            </a>
+                        </div>
+                        <div class="product-single-content__meta">
+                            <div class="product-single-content__meta--item">
+                                <div class="label">Categories:</div>
+                                <div class="content">
+                                    <a> @Model.Category.Name</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Single content End -->
+                </div>
+            </div>
+            <!-- Product Single Wrapper End -->
+        </div>
+    </div>
+</main>

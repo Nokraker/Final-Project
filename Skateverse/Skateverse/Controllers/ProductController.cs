@@ -66,5 +66,13 @@ namespace Skateverse.Controllers
             var shoppingCart = productService.ViewShoppingCart(userId);
             return View(shoppingCart);
         }
+
+        [HttpGet]
+        public IActionResult FullProductPage(Guid productId)
+        {
+            var product = productService.FullProductPage(productId);
+
+            return View(product);
+        }
     }
 }
