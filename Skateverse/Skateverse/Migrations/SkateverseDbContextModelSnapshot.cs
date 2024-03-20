@@ -165,6 +165,9 @@ namespace Skateverse.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsPayed")
                         .HasColumnType("bit");
 
@@ -181,7 +184,7 @@ namespace Skateverse.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ShoppingCarts", (string)null);
+                    b.ToTable("ShoppingCarts");
                 });
 
             modelBuilder.Entity("Skateverse.Data.Models.Category", b =>
@@ -197,22 +200,22 @@ namespace Skateverse.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3ce676e9-e236-4405-aba5-6d8d34dfe38d"),
+                            Id = new Guid("498ac191-a529-40d4-a620-e8b3d229011a"),
                             Name = "Jeans"
                         },
                         new
                         {
-                            Id = new Guid("45234760-5cfe-4625-865d-8fe1fdadce42"),
+                            Id = new Guid("e3113030-fa86-4733-83a1-d65373fd6f49"),
                             Name = "Upperwear"
                         },
                         new
                         {
-                            Id = new Guid("71de3abe-af27-48c0-b2c4-2276bada16bf"),
+                            Id = new Guid("318898ba-de9b-420e-9cf0-902f3c39528a"),
                             Name = "Shirts"
                         });
                 });
@@ -229,7 +232,7 @@ namespace Skateverse.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Favourites", (string)null);
+                    b.ToTable("Favourites");
                 });
 
             modelBuilder.Entity("Skateverse.Data.Models.Payment", b =>
@@ -259,7 +262,7 @@ namespace Skateverse.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Payments", (string)null);
+                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("Skateverse.Data.Models.PaymentCard", b =>
@@ -292,7 +295,7 @@ namespace Skateverse.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Cards", (string)null);
+                    b.ToTable("Cards");
                 });
 
             modelBuilder.Entity("Skateverse.Data.Models.Product", b =>
@@ -323,7 +326,7 @@ namespace Skateverse.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("Skateverse.Data.Models.User", b =>

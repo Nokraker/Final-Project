@@ -1,10 +1,13 @@
 ﻿@using Skateverse.Data.Models
 @model List<CartViewModel>
 @{
-        double totalPrice = 0;
+    double productSubPrice = 0;
+    double totalPrice = 0;
     @foreach (CartViewModel cart in Model)
     {
-        totalPrice += cart.Product.Price;
+        productSubPrice = cart.Count * cart.Product.Price;
+        totalPrice += productSubPrice;
+
     }
 
 }
@@ -46,6 +49,12 @@
                                         <th class="cart-product-price text-center">
                                             Price
                                         </th>
+                                        <th class="cart-product-quantity text-center">
+                                            Quantity
+                                        </th>
+                                        <th class="cart-product-subtotal text-center">
+                                            Subtotal
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -72,6 +81,28 @@
                                                 <span class="price-amount">
                                                     <ins>@cart.Product.Price $</ins>
                                                 </span>
+                                            </td>
+                                            <td class="cart-product-quantity text-md-center" data-title="Quantity">
+                                                <div class="cart-table__quantity product-quantity">
+                                                    <form method="post" asp-action="LowerTheCount" asp-controller="Product">
+                                                        <input type="hidden" name="cartId" value="@cart.Id" />
+                                                        <button type="submit">
+                                                            <i class="bi bi-x"></i>
+                                                        </button>
+                                                    </form>
+                                                    <input class="quantity-input" type="text" value="@cart.Count" aria-label="quantity" />
+                                                    <form asp-action="UpTheCount" asp-controller="Product" method="post">
+                                                        <input type="hidden" name="cartId" value="@cart.Id" />
+                                                        <button type="submit">
+                                                            <i class="bi bi-plus"></i>
+                                                        </button>
+                                                    </form>
+
+                                                </div>
+                                            </td>
+
+                                            <td class="cart-product-subtotal text-md-center" data-title="Subtotal">
+                                                <span class="price-amount">@(cart.Product.Price * cart.Count)$</span>
                                             </td>
                                         </tr>
                                     }

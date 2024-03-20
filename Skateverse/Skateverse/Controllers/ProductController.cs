@@ -28,18 +28,18 @@ namespace Skateverse.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(AddProductModel model)
+        public async Task<IActionResult> Add(AddProductModel model)
         {
             if (!ModelState.IsValid)
             {
                 return this.View(model);
             }
-            var pr = productService.Add(model);
+            await productService.Add(model);
             return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
-        public IActionResult AddCart(Guid productId)
+        public async Task<IActionResult> AddCart(Guid productId)
         {
             var userId = User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
@@ -48,31 +48,44 @@ namespace Skateverse.Controllers
                 return RedirectToAction("LogIn", "User");
             }
 
-            productService.AddCart(userId, productId);
+            await productService.AddCart(userId, productId);
 
             return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
-        public IActionResult ViewShoppingCart()
+        public async Task<IActionResult> ViewShoppingCart()
         {
-            var userId = User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var userId =  User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
             if (userId == null)
             {
                 return RedirectToAction("LogIn", "User");
             }
 
-            var shoppingCart = productService.ViewShoppingCart(userId);
+            var shoppingCart =  await productService.ViewShoppingCart(userId);
             return View(shoppingCart);
         }
 
         [HttpGet]
-        public IActionResult FullProductPage(Guid productId)
+        public async Task<IActionResult> FullProductPage(Guid productId)
         {
-            var product = productService.FullProductPage(productId);
+            var product = await productService.FullProductPage(productId);
 
             return View(product);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpTheCount([FromForm] Guid cartId)
+        {
+            await productService.UpTheCountOfAProductInACart(cartId);
+            return RedirectToAction("ViewShoppingCart");
+        }
+        [HttpPost]
+        public async Task<IActionResult> LowerTheCount(Guid cartId)
+        {
+            await productService.LowerTheCountOfAProductInACart(cartId);
+            return RedirectToAction("ViewShoppingCart");
         }
     }
 }

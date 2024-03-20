@@ -6,11 +6,14 @@ namespace Skateverse.Contracts
     public interface IProductService
     {
         Task<List<ProductViewModel>> GetAllAsync();
-        bool Add(AddProductModel model);
+        Task Add(AddProductModel model);
 
-        void AddCart(string UserId, Guid productId);
-        List<CartViewModel> ViewShoppingCart(string UserId);
+        Task AddCart(string UserId, Guid productId);
+        Task<List<CartViewModel>> ViewShoppingCart(string UserId);
 
-        Product FullProductPage(Guid productId);
+        Task<Product> FullProductPage(Guid productId);
+
+        Task UpTheCountOfAProductInACart(Guid cartId);
+        Task LowerTheCountOfAProductInACart(Guid cartId);
     }
 }

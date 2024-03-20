@@ -5,6 +5,7 @@ using Skateverse.Contracts;
 using Skateverse.Data;
 using Skateverse.Data.Models;
 using Skateverse.Models;
+using System.Runtime.CompilerServices;
 
 namespace Skateverse.Services
 {
@@ -34,7 +35,7 @@ namespace Skateverse.Services
                 }).ToList();
         }
 
-        public bool Add(AddProductModel model)
+        public async Task Add(AddProductModel model)
         {
             var product = new Product()
             {
@@ -46,31 +47,26 @@ namespace Skateverse.Services
                 CategoryId = model.CategoryId
             };
 
-            context.Products.Add(product);
-            context.SaveChanges();
-
-            if (context.Products.Contains(product))
-            {
-                return true;
-            }
-
-            return false;
+            await context.Products.AddAsync(product);
+            await context.SaveChangesAsync();
         }
 
-        public List<CartViewModel> ViewShoppingCart(string userId)
+        public async Task<List<CartViewModel>> ViewShoppingCart(string userId)
         {
 
-            List<CartViewModel> carts = context.ShoppingCarts.Include(x => x.Product).Include(x => x.Product.Category).Where(x => x.User.Id == userId && x.IsPayed == false).
+            List<CartViewModel> carts = await context.ShoppingCarts.Include(x => x.Product).Include(x => x.Product.Category).Where(x => x.User.Id == userId && x.IsPayed == false).
                 Select(p => new CartViewModel
                 {
+                    Id = p.Id,
                     Product = p.Product,
-                    IsPayed = p.IsPayed
-                }).ToList();
+                    IsPayed = p.IsPayed,
+                    Count = p.Count
+                }).ToListAsync();
 
             return carts;
         }
 
-        public void AddCart(string userId, Guid productId)
+        public async Task AddCart(string userId, Guid productId)
         {
 
             Cart cart = new Cart()
@@ -78,15 +74,37 @@ namespace Skateverse.Services
                 Id = Guid.NewGuid(),
                 UserId = userId,
                 ProductId = productId,
+                Count = 1
             };
 
-            context.ShoppingCarts.Add(cart);
-            context.SaveChanges();
+            await context.ShoppingCarts.AddAsync(cart);
+            await context.SaveChangesAsync();
         }
 
-        public Product FullProductPage(Guid productId)
+        public async Task<Product> FullProductPage(Guid productId)
         {
-            return context.Products.Include(x => x.Category).Where(x => x.Id == productId).FirstOrDefault();
+            return await context.Products.Include(x => x.Category).Where(x => x.Id == productId).FirstOrDefaultAsync();
+        }
+
+        public async Task  UpTheCountOfAProductInACart(Guid cartId)
+        {
+            Cart cart = await context.ShoppingCarts.FindAsync(cartId);
+
+            cart.Count++;
+            await context.SaveChangesAsync();
+        }
+        public async Task LowerTheCountOfAProductInACart(Guid cartId)
+        {
+            Cart cart = await context.ShoppingCarts.FindAsync(cartId);
+
+
+            cart.Count--;
+            if(cart.Count <= 0)
+            {
+               context.ShoppingCarts.Remove(cart);
+            }
+
+            await context.SaveChangesAsync();
         }
     }
 }
