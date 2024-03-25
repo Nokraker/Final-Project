@@ -17,11 +17,14 @@
                                 <!-- Single product Start -->
                                 <div class="single-product js-scroll ShortFadeInUp">
                                     <div class="single-product__thumbnail">
-                                        <div class="single-product__thumbnail--meta-3">
-                                            <a href="#" data-bs-tooltip="tooltip" data-bs-placement="top" data-bs-title="Add to wishlist" aria-label="Add to wishlist" data-bs-custom-class="p-meta-tooltip">
-                                                <i class="bi bi-heart"></i>
-                                            </a>
-                                        </div>
+                                        <form method="post">
+                                            <div class="single-product__thumbnail--meta-3">
+                                                <button data-bs-tooltip="tooltip" asp-action="AddToFavourites" asp-controller="Product" asp-route-productId="@product.Id">
+                                                    <i class="bi bi-heart"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+
                                         <div class="single-product__thumbnail--holder">
                                             <a>
                                                 <img src="@product.ImgUrl" alt="Product" width="350" height="378" loading="lazy" />

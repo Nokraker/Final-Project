@@ -56,14 +56,14 @@ namespace Skateverse.Controllers
         [HttpGet]
         public async Task<IActionResult> ViewShoppingCart()
         {
-            var userId =  User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var userId = User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
             if (userId == null)
             {
                 return RedirectToAction("LogIn", "User");
             }
 
-            var shoppingCart =  await productService.ViewShoppingCart(userId);
+            var shoppingCart = await productService.ViewShoppingCart(userId);
             return View(shoppingCart);
         }
 
@@ -86,6 +86,34 @@ namespace Skateverse.Controllers
         {
             await productService.LowerTheCountOfAProductInACart(cartId);
             return RedirectToAction("ViewShoppingCart");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddToFavourites(Guid productId)
+        {
+            var userId = User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            if (userId == null)
+            {
+                return RedirectToAction("LogIn", "User");
+            }
+
+            await productService.AddToFavourites(productId, userId);
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ViewFavourites()
+        {
+            var userId = User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            if (userId == null)
+            {
+                return RedirectToAction("LogIn", "User");
+            }
+
+            List<Favourite> favourites = await productService.ViewFavourites(userId);
+            return View(favourites);    
         }
     }
 }

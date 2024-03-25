@@ -15,5 +15,8 @@ namespace Skateverse.Contracts
 
         Task UpTheCountOfAProductInACart(Guid cartId);
         Task LowerTheCountOfAProductInACart(Guid cartId);
+
+        Task AddToFavourites(Guid productId, string userId);
+        Task<List<Favourite>> ViewFavourites(string userId);
     }
 }

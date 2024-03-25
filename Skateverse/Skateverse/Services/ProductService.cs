@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Skateverse.Contracts;
 using Skateverse.Data;
@@ -105,6 +106,23 @@ namespace Skateverse.Services
             }
 
             await context.SaveChangesAsync();
+        }
+
+        public async Task AddToFavourites(Guid productId, string userId)
+        {
+            Favourite fav = new Favourite()
+            {
+                ProductId = productId,
+                UserId = userId
+            };
+
+            await context.Favourites.AddAsync(fav);
+            await context.SaveChangesAsync();
+        }
+
+        public async Task<List<Favourite>> ViewFavourites(string userId)
+        {
+            return await context.Favourites.Include(x => x.Product).Where(x => x.UserId == userId).ToListAsync();
         }
     }
 }

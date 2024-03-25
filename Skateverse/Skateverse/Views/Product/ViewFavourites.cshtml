@@ -1,0 +1,81 @@
+﻿@using Skateverse.Data.Models;
+@model List<Favourite>
+@{
+}
+
+<main>
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-section">
+        <div class="container-fluid custom-container">
+            <div class="breadcrumb-wrapper text-center">
+                <h2 class="breadcrumb-wrapper__title">Wishlist</h2>
+                <ul class="breadcrumb-wrapper__items justify-content-center">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>Wishlist</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+    <!-- Wishlist Start -->
+    <div class="wishlist-section section-padding-2">
+        <div class="container-fluid custom-container">
+            <!-- Wishlist Table Start -->
+            <div class="wishlist-table">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="product-remove">&nbsp;</th>
+                            <th class="product-thumbnail">&nbsp;</th>
+                            <th class="product-name">Product</th>
+                            <th class="product-price text-md-center">
+                                Price
+                            </th>
+                            <th class="product-stock text-md-center">
+                                Stock status
+                            </th>
+                            <th class="product-action text-md-end"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Favourite item in Model)
+                        {
+                            <tr class="wishlist-item">
+                                <td class="product-remove">
+                                    <a href="#" class="remove">×</a>
+                                </td>
+                                <td class="product-thumbnail">
+                                    <a href="product-single.html">
+                                        <img src="@item.Product.ImgUrl" alt="Product" width="90" height="114" />
+                                    </a>
+                                </td>
+                                <td class="product-name">
+                                    <a href="product-single.html">
+                                        @item.Product.Name
+                                    </a>
+                                </td>
+                                <td class="product-price text-md-center" data-title="Price">
+                                    <span>
+                                        <del>$@item.Product.Price</del>
+                                    </span>
+                                </td>
+                                <td class="product-stock text-md-center" data-title="Stock status">
+                                    <span class="stock in-stock">
+                                        @item.Product.Count
+                                    </span>
+                                </td>
+                                <td class="product-action text-md-end">
+                                    <a href="#" class="wishlist-table__btn btn">
+                                        Add to cart
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- Wishlist Table End -->
+        </div>
+    </div>
+    <!-- Wishlist End -->
+</main>
