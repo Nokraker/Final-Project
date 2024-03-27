@@ -124,5 +124,12 @@ namespace Skateverse.Services
         {
             return await context.Favourites.Include(x => x.Product).Where(x => x.UserId == userId).ToListAsync();
         }
+
+        public async Task RemoveFromFavourites(Guid productId,string userId)
+        {
+            Favourite fav = await context.Favourites.Where(f => f.Product.Id == productId && f.User.Id == userId).FirstOrDefaultAsync();
+            context.Favourites.Remove(fav);
+            await context.SaveChangesAsync();
+        }
     }
 }

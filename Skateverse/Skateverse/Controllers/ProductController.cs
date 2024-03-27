@@ -115,5 +115,19 @@ namespace Skateverse.Controllers
             List<Favourite> favourites = await productService.ViewFavourites(userId);
             return View(favourites);    
         }
+
+        [HttpPost]
+        public async Task<IActionResult> RemoveFromFavourites(Guid productId)
+        {
+            var userId = User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            if (userId == null)
+            {
+                return RedirectToAction("LogIn", "User");
+            }
+
+            await productService.RemoveFromFavourites(productId,userId);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
