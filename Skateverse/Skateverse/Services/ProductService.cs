@@ -23,7 +23,7 @@ namespace Skateverse.Services
 
         public async Task<List<ProductViewModel>> GetAllAsync()
         {
-            var entities = await context.Products.Include(nameof(Category)).ToListAsync();
+            var entities = await context.Products.Include(p => p.Category).ToListAsync();
             return entities
                 .Select(p => new ProductViewModel
                 {
@@ -107,6 +107,7 @@ namespace Skateverse.Services
 
             await context.SaveChangesAsync();
         }
+
 
         public async Task AddToFavourites(Guid productId, string userId)
         {

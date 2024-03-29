@@ -129,5 +129,13 @@ namespace Skateverse.Controllers
             await productService.RemoveFromFavourites(productId,userId);
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> SearchPage()
+        {
+            var allProducts = await productService.GetAllAsync();
+
+            return View(allProducts);
+        }
     }
 }

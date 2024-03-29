@@ -1,3 +1,27 @@
+.sidenav {
+    width: 160px; /* Set the width of the sidebar */
+    z-index: 1; /* Stay on top */
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    position: sticky;
+    align-self: flex-start;
+}
+
+    /* The navigation menu links */
+    .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+    }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
 @font-face {
     font-family: sprite-graffiti;
     src: url(../fonts/SpriteGraffiti.otf);
