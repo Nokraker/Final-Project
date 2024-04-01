@@ -132,5 +132,15 @@ namespace Skateverse.Services
             context.Favourites.Remove(fav);
             await context.SaveChangesAsync();
         }
+
+        public async Task<List<Category>> GetAllCategoriesAsync()
+        {
+            return await context.Categories.ToListAsync();
+        }
+
+        public async Task<List<Product>> GetAllFilteredProductsAsync(Guid categoryId)
+        {
+            return await context.Products.Include(p => p.Category).Where(p => p.Category.Id == categoryId).ToListAsync();
+        }
     }
 }

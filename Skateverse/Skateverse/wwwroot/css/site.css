@@ -1,11 +1,12 @@
 .sidenav {
     width: 160px; /* Set the width of the sidebar */
-    z-index: 1; /* Stay on top */
     left: 0;
     overflow-x: hidden;
     padding-top: 20px;
     position: sticky;
     align-self: flex-start;
+    margin-right:30px;
+    margin-top:142px;
 }
 
     /* The navigation menu links */

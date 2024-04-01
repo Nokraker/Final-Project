@@ -19,5 +19,7 @@ namespace Skateverse.Contracts
         Task AddToFavourites(Guid productId, string userId);
         Task<List<Favourite>> ViewFavourites(string userId);
         Task RemoveFromFavourites(Guid productId,string userId);
+        Task<List<Category>> GetAllCategoriesAsync();
+        Task<List<Product>> GetAllFilteredProductsAsync(Guid categoryId);
     }
 }

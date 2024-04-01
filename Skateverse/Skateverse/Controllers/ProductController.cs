@@ -21,9 +21,9 @@ namespace Skateverse.Controllers
         }
 
         [HttpGet]
-        public IActionResult Add()
+        public async Task<IActionResult> Add()
         {
-            ViewBag.Categories = context.Categories.ToList();
+            ViewBag.Categories = await productService.GetAllCategoriesAsync();
             return View();
         }
 
@@ -134,8 +134,18 @@ namespace Skateverse.Controllers
         public async Task<IActionResult> SearchPage()
         {
             var allProducts = await productService.GetAllAsync();
+            ViewBag.Categories = await productService.GetAllCategoriesAsync();
 
             return View(allProducts);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> FilteredPage(Guid categoryId)
+        {
+            var products = await productService.GetAllFilteredProductsAsync(categoryId);
+            ViewBag.Categories = await productService.GetAllCategoriesAsync();
+
+            return View(products);
         }
     }
 }
