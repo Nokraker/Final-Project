@@ -1,0 +1,80 @@
+﻿@using Skateverse.Data.Models;
+@using Skateverse.Models.Account;
+@model Payment
+
+@{
+    double productSubPrice = 0;
+    double totalPrice = 0;
+    @foreach (Cart cart in Model.cartItems)
+    {
+        productSubPrice = cart.Count * cart.Product.Price;
+        totalPrice += productSubPrice;
+
+    }
+}
+
+<main>
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-section" style="margin-top:142px">
+        <div class="container-fluid custom-container">
+            <div class="breadcrumb-wrapper text-center">
+                <h2 class="breadcrumb-wrapper__title">Thank you</h2>
+                <ul class="breadcrumb-wrapper__items justify-content-center">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>Thank you</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+    <!-- Thank You Start -->
+    <div class="thank-you-section section-padding-2">
+        <div class="container-fluid custom-container">
+            <!-- Thank You Table Start -->
+            <div class="thank-you">
+                <p class="thank-you-notice">
+                    Thank you. Your order has been received.
+                </p>
+
+                <!-- Thank You Order Overview Start -->
+                <ul class="thank-you-order-overview">
+                    <li>
+                        <span> Total: @totalPrice</span>
+                        <strong></strong>
+                    </li>
+                </ul>
+                <!-- Thank You Order Overview End -->
+                <!-- Thank You Order Details Start -->
+                <div class="thank-you-order-details">
+                    <h3 class="thank-you-title">Order details</h3>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="product-name">Product</th>
+                                <th class="product-total">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Cart item in Model.cartItems)
+                            {
+                                <tr class="order-item">
+                                    <td class="product-name">
+                                        <a>@item.Product.Name</a>
+                                        <strong>×&nbsp;@item.Count</strong>
+                                    </td>
+                                    <td class="product-total">
+                                        <span class="amount"> @(item.Product.Price * item.Count) </span>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Thank You Table End -->
+        </div>
+    </div>
+    <!-- Thank You End -->
+</main>

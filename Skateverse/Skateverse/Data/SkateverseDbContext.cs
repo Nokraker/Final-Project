@@ -13,7 +13,6 @@ namespace Skateverse.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Favourite> Favourites { get; set; }
         public DbSet<Payment> Payments { get; set; }
-        public DbSet<PaymentCard> Cards { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

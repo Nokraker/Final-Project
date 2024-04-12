@@ -62,7 +62,7 @@
                                     {
                                         <tr class="cart-item">
                                             <td class="bi bi-x">
-                                                <a href="#" class="remove"></a>
+                                                <a asp-action="RemoveFromCart" asp-controller="Product" asp-route-cartId="@cart.Id" class="remove"></a>
                                             </td>
 
                                             <td class="cart-product-thumbnail">
@@ -131,9 +131,17 @@
                                 </table>
                             </div>
 
-                            <div class="cart-totals__checkout">
-                                <a href="#">Proceed to checkout</a>
-                            </div>
+                            @if (Model.Count <= 0)
+                            {
+
+                            }
+                            else
+                            {
+                                <div>
+                                    <a asp-action="CheckOut" asp-controller="Product">Proceed to checkout</a>
+                                </div>
+                            }
+
                         </div>
                         <!-- Cart Totals End-->
                     </div>

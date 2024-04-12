@@ -32,7 +32,7 @@
                     </div>
                     <div class="header-2__top--right">
                         <ul class="header-2__top--items">
-                            <partial name="_LoginPartial"/>
+                            <partial name="_LoginPartial" />
                         </ul>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="col-xl-3 col-md-4 col-6">
                         <div class="header__main--logo text-center text-xl-start">
-                            <a>
+                            <a asp-action="Index" asp-controller="Home">
                                 <span class="font-sprite-graffiti">Skateverse</span>
                             </a>
                         </div>
@@ -56,13 +56,18 @@
                         <div class="header__main--meta header__main--dark d-flex justify-content-end align-items-center">
                             <!-- Meta Item List Start -->
                             <ul class="meta-items-list meta-items-list--dark d-flex justify-content-end align-items-center">
+                                <form method="get" asp-action="SearchProduct" asp-controller="Product">
                                 <li class="wishlist">
-                                    <a asp-action="SearchPage" asp-controller="Product" >
+                                    <input type="text" placeholder="Search.." name="productName">
+                                </li>
+                                </form>
+                                <li class="wishlist">
+                                    <a asp-action="SearchPage" asp-controller="Product">
                                         <i class="bi bi-search"></i>
                                     </a>
                                 </li>
                                 <li class="wishlist">
-                                    <a asp-action="Add" asp-controller="Product" >
+                                    <a asp-action="Add" asp-controller="Product">
                                         <i class="bi bi-plus"></i>
                                     </a>
                                 </li>

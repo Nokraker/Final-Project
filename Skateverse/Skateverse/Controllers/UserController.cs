@@ -108,7 +108,6 @@ namespace Skateverse.Controllers
         [HttpGet]
         public IActionResult ProfilePage()
         {
-            
             return View();
         }
     }

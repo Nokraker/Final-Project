@@ -22,6 +22,21 @@ namespace Skateverse.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("CartPayment", b =>
+                {
+                    b.Property<Guid>("PaymentsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("cartItemsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("PaymentsId", "cartItemsId");
+
+                    b.HasIndex("cartItemsId");
+
+                    b.ToTable("CartPayment");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -205,17 +220,17 @@ namespace Skateverse.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("498ac191-a529-40d4-a620-e8b3d229011a"),
+                            Id = new Guid("93a1a798-8063-43c3-af27-f20dce1e3764"),
                             Name = "Jeans"
                         },
                         new
                         {
-                            Id = new Guid("e3113030-fa86-4733-83a1-d65373fd6f49"),
+                            Id = new Guid("f988a56c-64ca-41b1-b001-7bba44241ee9"),
                             Name = "Upperwear"
                         },
                         new
                         {
-                            Id = new Guid("318898ba-de9b-420e-9cf0-902f3c39528a"),
+                            Id = new Guid("90d020a5-a80b-4acc-98e6-39c3470e738b"),
                             Name = "Shirts"
                         });
                 });
@@ -241,11 +256,19 @@ namespace Skateverse.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CartId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("PCardId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<DateTime>("Payment_Date")
                         .HasColumnType("datetime2");
@@ -256,46 +279,9 @@ namespace Skateverse.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CartId");
-
-                    b.HasIndex("PCardId");
-
                     b.HasIndex("UserId");
 
                     b.ToTable("Payments");
-                });
-
-            modelBuilder.Entity("Skateverse.Data.Models.PaymentCard", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CVV")
-                        .IsRequired()
-                        .HasMaxLength(3)
-                        .HasColumnType("nvarchar(3)");
-
-                    b.Property<string>("CardNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ExpireDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("NameOnCard")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Cards");
                 });
 
             modelBuilder.Entity("Skateverse.Data.Models.Product", b =>
@@ -395,6 +381,21 @@ namespace Skateverse.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("CartPayment", b =>
+                {
+                    b.HasOne("Skateverse.Data.Models.Payment", null)
+                        .WithMany()
+                        .HasForeignKey("PaymentsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Skateverse.Data.Models.Cart", null)
+                        .WithMany()
+                        .HasForeignKey("cartItemsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -486,35 +487,8 @@ namespace Skateverse.Migrations
 
             modelBuilder.Entity("Skateverse.Data.Models.Payment", b =>
                 {
-                    b.HasOne("Skateverse.Data.Models.Cart", "Cart")
-                        .WithMany("Payments")
-                        .HasForeignKey("CartId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Skateverse.Data.Models.PaymentCard", "PCard")
-                        .WithMany("Orders")
-                        .HasForeignKey("PCardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Skateverse.Data.Models.User", "User")
                         .WithMany("Payments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cart");
-
-                    b.Navigation("PCard");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Skateverse.Data.Models.PaymentCard", b =>
-                {
-                    b.HasOne("Skateverse.Data.Models.User", "User")
-                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -533,19 +507,9 @@ namespace Skateverse.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Skateverse.Data.Models.Cart", b =>
-                {
-                    b.Navigation("Payments");
-                });
-
             modelBuilder.Entity("Skateverse.Data.Models.Category", b =>
                 {
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("Skateverse.Data.Models.PaymentCard", b =>
-                {
-                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("Skateverse.Data.Models.Product", b =>

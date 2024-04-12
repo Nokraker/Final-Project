@@ -1,0 +1,150 @@
+﻿@using Skateverse.Data.Models;
+@using Skateverse.Models.Account;
+@model PaymentViewModel
+@{
+    double productSubPrice = 0;
+    double totalPrice = 0;
+    @foreach (CartViewModel cart in ViewBag.ShoppingCart)
+    {
+        productSubPrice = cart.Count * cart.Product.Price;
+        totalPrice += productSubPrice;
+    }
+}
+
+<main>
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-section" style="margin-top:142px">
+        <div class="container-fluid custom-container">
+            <div class="breadcrumb-wrapper text-center">
+                <h2 class="breadcrumb-wrapper__title">Checkout</h2>
+                <ul class="breadcrumb-wrapper__items justify-content-center">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>Checkout</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+    <!-- Checkout Start -->
+    <form asp-action="FinishingOrder" method="post" asp-controller="Product">
+        <div class="checkout-section section-padding-2">
+            <div class="container-fluid custom-container">
+                <!-- Checkout Start -->
+                <div class="checkout-wrapper">
+
+                    <div class="checkout-row">
+                        <div class="checkout-col-1">
+                            <!-- Checkout Details Start -->
+                            <div class="checkout-details">
+                                <h3 class="checkout-details__title">
+                                    Billing details
+                                </h3>
+                                <!-- Checkout Details Billing Start -->
+                                <div class="checkout-details__billing">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <!-- Single Form Start -->
+                                            <div class="single-form">
+                                                <label class="single-form__label">First name *</label>
+                                                <input class="single-form__input" type="text" asp-for="@Model.FirstName" />
+                                            </div>
+                                            <!-- Single Form End -->
+                                        </div>
+                                        <div class="col-md-6">
+                                            <!-- Single Form Start -->
+                                            <div class="single-form">
+                                                <label class="single-form__label">Last name *</label>
+                                                <input class="single-form__input" type="text" asp-for="@Model.LastName" />
+                                            </div>
+                                            <!-- Single Form End -->
+                                        </div>
+                                    </div>
+                                    <!-- Single Form Start -->
+                                    <div class="single-form">
+                                        <label class="single-form__label">Address *</label>
+                                        <input class="single-form__input" type="text" placeholder="Address" asp-for="@Model.Address" />
+                                    </div>
+                                    <!-- Single Form End -->
+                                </div>
+                                <!-- Checkout Details Billing End -->
+
+                            </div>
+                            <!-- Checkout Details End -->
+                        </div>
+                        <div class="checkout-col-2">
+                            <!-- Checkout Details Start -->
+                            <div class="checkout-details">
+                                <h3 class="checkout-details__title">
+                                    Your order
+                                </h3>
+
+                                <div class="checkout-details__order-review">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="product-name">
+                                                    Product
+                                                </th>
+                                                <th class="product-total">
+                                                    Subtotal
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (CartViewModel item in ViewBag.ShoppingCart)
+                                            {
+                                                <tr class="cart-item">
+                                                    <td class="product-name">
+                                                        @item.Product.Name
+                                                        <strong>×&nbsp;@item.Count</strong>
+                                                    </td>
+                                                    <td class="product-total">
+                                                        <span> @(item.Product.Price * item.Count)$ </span>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        </tbody>
+                                        <tfoot>
+
+                                            <tr class="order-total">
+                                                <th>Total</th>
+                                                <td>
+                                                    <strong>
+                                                        <span>
+                                                            @totalPrice$
+                                                        </span>
+                                                    </strong>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+
+                                    <div class="checkout-details__privacy-policy">
+                                        <p>
+                                            Your personal data will be used
+                                            to process your order, support
+                                            your experience throughout this
+                                            website, and for other purposes
+                                            described in our privacy policy.
+                                            We ship only in Bulgaria.
+                                        </p>
+                                    </div>
+
+                                    <div class="checkout-details__btn">
+                                        <button class="btn" type="submit">
+                                            Place Order
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Checkout Details End -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Checkout End -->
+            </div>
+        </div>
+        <!-- Checkout End -->
+    </form>
+</main>

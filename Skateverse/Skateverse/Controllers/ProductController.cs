@@ -3,6 +3,7 @@ using Skateverse.Contracts;
 using Skateverse.Data;
 using Skateverse.Data.Models;
 using Skateverse.Models;
+using Skateverse.Models.Account;
 using Skateverse.Services;
 using System.Security.Claims;
 
@@ -140,12 +141,64 @@ namespace Skateverse.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> FilteredPage(Guid categoryId)
+        public async Task<IActionResult> FilteredSearchPage(Guid categoryId)
         {
             var products = await productService.GetAllFilteredProductsAsync(categoryId);
             ViewBag.Categories = await productService.GetAllCategoriesAsync();
 
             return View(products);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> SearchProduct(string productName)
+        {
+            var product = await productService.SearchProductAsync(productName);
+
+            if (product == null)
+            {
+                return RedirectToAction("NotFound", "Product");
+            }
+            return View(product);
+        }
+
+        [HttpGet]
+        public IActionResult NotFound()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> RemoveFromCart(Guid cartId)
+        {
+            await productService.RemoveCartItem(cartId);
+            return RedirectToAction("ViewShoppingCart", "Product");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> CheckOut()
+        {
+            var userId = User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            if (userId == null)
+            {
+                return RedirectToAction("LogIn", "User");
+            }
+            ViewBag.ShoppingCart = await productService.ViewShoppingCart(userId);
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> FinishingOrder (PaymentViewModel model)
+        {
+            var userId = User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            if(userId == null)
+            {
+                return RedirectToAction("LogIn", "User");
+            }
+            var payment = await productService.Checkout(model,userId);
+            return View(payment);
         }
     }
 }
