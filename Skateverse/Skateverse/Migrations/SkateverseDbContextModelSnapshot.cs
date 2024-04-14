@@ -220,17 +220,17 @@ namespace Skateverse.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("93a1a798-8063-43c3-af27-f20dce1e3764"),
+                            Id = new Guid("d9df75f2-18f5-4bb6-b2e7-137dcec56d83"),
                             Name = "Jeans"
                         },
                         new
                         {
-                            Id = new Guid("f988a56c-64ca-41b1-b001-7bba44241ee9"),
+                            Id = new Guid("c7e849ab-e1c6-49c2-bc65-4427e59979c1"),
                             Name = "Upperwear"
                         },
                         new
                         {
-                            Id = new Guid("90d020a5-a80b-4acc-98e6-39c3470e738b"),
+                            Id = new Guid("f1a7a6a2-6012-4489-9a3f-3d710eb20f28"),
                             Name = "Shirts"
                         });
                 });

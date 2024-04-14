@@ -60,17 +60,31 @@
                                 <li class="wishlist">
                                     <input type="text" placeholder="Search.." name="productName">
                                 </li>
+
+                                <!--<li>
+                                    <a asp-action="CreateRoles" asp-controller="User">
+                                        <i class="bi bi-search"></i>
+                                    </a>
+                                </li>-->
                                 </form>
                                 <li class="wishlist">
                                     <a asp-action="SearchPage" asp-controller="Product">
                                         <i class="bi bi-search"></i>
                                     </a>
                                 </li>
-                                <li class="wishlist">
-                                    <a asp-action="Add" asp-controller="Product">
-                                        <i class="bi bi-plus"></i>
-                                    </a>
-                                </li>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li class="wishlist">
+                                        <a asp-action="Add" asp-controller="Product">
+                                            <i class="bi bi-plus"></i>
+                                        </a>
+                                    </li>
+                                    <li class="wishlist">
+                                        <a asp-action="EditProducts" asp-controller="Product">
+                                            <i class="bi bi-plus"></i>
+                                        </a>
+                                    </li>
+                                }
                                 <li class="wishlist">
                                     <a asp-action="ViewFavourites" asp-controller="Product">
                                         <i class="bi bi-heart"></i>

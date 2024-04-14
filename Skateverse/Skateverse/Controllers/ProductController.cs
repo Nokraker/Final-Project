@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Skateverse.Contracts;
 using Skateverse.Data;
 using Skateverse.Data.Models;
@@ -22,6 +23,7 @@ namespace Skateverse.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Add()
         {
             ViewBag.Categories = await productService.GetAllCategoriesAsync();

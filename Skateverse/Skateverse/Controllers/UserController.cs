@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Skateverse.Data;
 using Skateverse.Data.Models;
 using Skateverse.Models;
 
@@ -10,14 +11,18 @@ namespace Skateverse.Controllers
     [Authorize]
     public class UserController : Controller
     {
+        private readonly SkateverseDbContext context;
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
+        private readonly RoleManager<IdentityRole> roleManager;
 
         //Adding the userManager and the SignInManager
-        public UserController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public UserController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager, SkateverseDbContext _context)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.roleManager = roleManager;
+            this.context = _context;
         }
 
         //Register get method
@@ -48,7 +53,16 @@ namespace Skateverse.Controllers
                 UserName = model.UserName
             };
 
-            var result = await userManager.CreateAsync(user,model.Password);
+            var userList = context.Users.ToList();
+            var result = await userManager.CreateAsync(user, model.Password);
+            if (userList.Count <= 0)
+            {
+                await userManager.AddToRoleAsync(user, "Admin");
+            }
+            else
+            {
+                await userManager.AddToRoleAsync(user, "User");
+            }
 
             if (result.Succeeded)
             {
@@ -109,6 +123,15 @@ namespace Skateverse.Controllers
         public IActionResult ProfilePage()
         {
             return View();
+        }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> CreateRoles()
+        {
+            await roleManager.CreateAsync(new IdentityRole("Admin"));
+            await roleManager.CreateAsync(new IdentityRole("User"));
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
