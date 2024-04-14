@@ -11,7 +11,7 @@
             <div id="allProducts" class="tab-pane fade show active" role="tabpanel">
                 <div class="new-arrival-wrapper-2">
                     <div class="row g-3 justify-content-center">
-                        @if(Model.Count != 0)
+                        @if (Model.Count != 0)
                         {
                             @foreach (ProductViewModel product in Model)
                             {
@@ -38,6 +38,12 @@
                                                         <i class="bi bi-cart"></i>
                                                     </button>
                                                 </form>
+                                                @if (User.IsInRole("Admin"))
+                                                {
+                                                    <a asp-action="Edit" asp-controller="Product" asp-route-productId="@product.Id">
+                                                        <i class="bi bi-pen"></i>
+                                                    </a>
+                                                }
 
                                             </div>
                                         </div>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Skateverse.Contracts;
 using Skateverse.Data;
 using Skateverse.Data.Models;
@@ -164,10 +165,7 @@ namespace Skateverse.Controllers
         }
 
         [HttpGet]
-        public IActionResult NotFound()
-        {
-            return View();
-        }
+        public IActionResult NotFound() => View();
 
         [HttpGet]
         public async Task<IActionResult> RemoveFromCart(Guid cartId)
@@ -201,6 +199,21 @@ namespace Skateverse.Controllers
             }
             var payment = await productService.Checkout(model,userId);
             return View(payment);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(Guid productId)
+        {
+            var product = await productService.FullProductPage(productId);
+
+            return View(product);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Product model)
+        {
+            await productService.Edit(model);
+            return RedirectToAction("Index", "Home");
         }
     }
 }

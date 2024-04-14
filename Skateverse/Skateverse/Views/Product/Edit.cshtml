@@ -1,0 +1,41 @@
+﻿@using Skateverse.Data.Models;
+@model Product
+
+@{
+}
+
+<div class="login-register-section section-padding-2" style="margin-top: 142px">
+    <div class="container-fluid custom-container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="login-register align-content-center">
+                    <h3 class="login-register__title">Edit product</h3>
+
+                    <form method="post">
+                        <div class="login-register__form">
+                            <div class="single-form align-content-center">
+                                <input class="single-form__input" type="text" value="@Model.Name" asp-for="@Model.Name" />
+                            </div>
+                            <div class="single-form">
+                                <input class="single-form__input" type="text" value="@Model.ImgUrl" asp-for="@Model.ImgUrl" />
+                            </div>
+                            <div class="single-form">
+                                <input class="single-form__input" type="number" value="@Model.Price" asp-for="@Model.Price" />
+                            </div>
+                            <div class="single-form">
+                                <input class="single-form__input" type="number" value="@Model.Count" asp-for="@Model.Count" />
+                            </div>
+                            <div class="single-form">
+                                <button class="single-form__btn btn" type="submit">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

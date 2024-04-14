@@ -187,5 +187,13 @@ namespace Skateverse.Services
 
             return payment;
         }
+
+        public async Task Edit(Product model)
+        {
+            Product product = await context.Products.Where(p => p.Id == model.Id).FirstOrDefaultAsync();
+            product = model;
+
+            await context.SaveChangesAsync();
+        }
     }
 }

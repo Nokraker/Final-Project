@@ -21,5 +21,6 @@ namespace Skateverse.Contracts
         Task<Product> SearchProductAsync(string productName);
         Task RemoveCartItem(Guid cartId);
         Task<Payment> Checkout(PaymentViewModel model, string userId);
+        Task Edit(Product model);
     }
 }
