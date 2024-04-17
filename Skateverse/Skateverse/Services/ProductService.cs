@@ -57,7 +57,8 @@ namespace Skateverse.Services
         public async Task<List<CartViewModel>> ViewShoppingCart(string userId)
         {
 
-            List<CartViewModel> carts = await context.ShoppingCarts.Include(x => x.Product).Include(x => x.Product.Category).Where(x => x.User.Id == userId && x.IsPayed == false).
+            List<CartViewModel> carts = await context.ShoppingCarts.Include(x => x.Product).Include(x => x.Product.Category)
+                .Where(x => x.User.Id == userId && x.IsPayed == false).
                 Select(p => new CartViewModel
                 {
                     Id = p.Id,
@@ -191,7 +192,10 @@ namespace Skateverse.Services
         public async Task Edit(Product model)
         {
             Product product = await context.Products.Where(p => p.Id == model.Id).FirstOrDefaultAsync();
-            product = model;
+            product.Name = model.Name;
+            product.Count = model.Count;
+            product.Price = model.Price;
+            product.ImgUrl = model.ImgUrl;
 
             await context.SaveChangesAsync();
         }

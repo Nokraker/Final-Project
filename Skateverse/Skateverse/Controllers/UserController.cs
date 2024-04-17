@@ -126,12 +126,15 @@ namespace Skateverse.Controllers
         }
 
         [AllowAnonymous]
-        public async Task<IActionResult> CreateRoles()
+        public async Task CreateRoles()
         {
-            await roleManager.CreateAsync(new IdentityRole("Admin"));
-            await roleManager.CreateAsync(new IdentityRole("User"));
+            var roleList = context.Roles.ToList();
 
-            return RedirectToAction("Index", "Home");
+            if (roleList.Count <= 0)
+            {
+                await roleManager.CreateAsync(new IdentityRole("Admin"));
+                await roleManager.CreateAsync(new IdentityRole("User"));
+            }
         }
     }
 }

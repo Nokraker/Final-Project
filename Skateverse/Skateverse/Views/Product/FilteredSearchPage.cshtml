@@ -1,18 +1,13 @@
 ﻿@using Skateverse.Data.Models;
 @model List<Product>
-@{
-}
 
 <body>
 
     <div style="display:flex">
         <div class="sidenav">
-            <div class="filter">
-                <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#mobile-filter" aria-expanded="false" aria-controls="mobile-filter">Filters<span class="fa fa-filter pl-1"></span></button>
-            </div>
             <section id="sidebar">
                 <div>
-                    <h6 class="p-1 border-bottom">Home Furniture</h6>
+                    <h6 class="p-1 border-bottom">Categories</h6>
                     <ul>
                         @foreach (Category c in ViewBag.Categories)
                         {
@@ -22,10 +17,10 @@
                 </div>
             </section>
         </div>
-        <section id="products" style="width:700px;margin-top:142px">
+        <section id="products" style="width:700px;margin-top:142px; right:auto">
             <div class="container">
-                <div class="row">
-                    <div class="row g-5 justify-content-left">
+                <div class="col">
+                    <div class="row g-20 justify-content-left">
                         @if (Model.Count != 0)
                         {
                             @foreach (Product product in Model)

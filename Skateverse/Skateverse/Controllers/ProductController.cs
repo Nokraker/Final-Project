@@ -212,6 +212,10 @@ namespace Skateverse.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Product model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
             await productService.Edit(model);
             return RedirectToAction("Index", "Home");
         }

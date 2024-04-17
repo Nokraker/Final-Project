@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Skateverse.Controllers;
 using Skateverse.Data.Models;
 
 namespace Skateverse.Data
 {
     public class SkateverseDbContext:IdentityDbContext<User>
     {
-        public SkateverseDbContext(DbContextOptions options) : base(options) { }
+        private UserController controller;
+        public SkateverseDbContext(DbContextOptions options, UserController _uController) : base(options) { this.controller = _uController; }
 
         public DbSet<Cart> ShoppingCarts { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -14,7 +16,7 @@ namespace Skateverse.Data
         public DbSet<Favourite> Favourites { get; set; }
         public DbSet<Payment> Payments { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected async override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Favourite>()
                 .HasKey(x => new { x.UserId, x.ProductId });
@@ -23,8 +25,6 @@ namespace Skateverse.Data
                 .Property(u => u.Email)
                 .HasMaxLength(60)
                 .IsRequired();
-
-            base.OnModelCreating(builder);
 
             builder.Entity<Category>()
                 .HasData(new Models.Category
@@ -42,6 +42,7 @@ namespace Skateverse.Data
                     Id = Guid.NewGuid(),
                     Name = "Shirts"
                 });
+            await controller.CreateRoles();
             base.OnModelCreating(builder);
         }
     }
