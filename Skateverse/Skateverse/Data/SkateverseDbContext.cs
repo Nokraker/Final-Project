@@ -8,7 +8,7 @@ namespace Skateverse.Data
     public class SkateverseDbContext:IdentityDbContext<User>
     {
         private UserController controller;
-        public SkateverseDbContext(DbContextOptions options, UserController _uController) : base(options) { this.controller = _uController; }
+        public SkateverseDbContext(DbContextOptions options) : base(options) {  }
 
         public DbSet<Cart> ShoppingCarts { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -42,7 +42,6 @@ namespace Skateverse.Data
                     Id = Guid.NewGuid(),
                     Name = "Shirts"
                 });
-            await controller.CreateRoles();
             base.OnModelCreating(builder);
         }
     }
